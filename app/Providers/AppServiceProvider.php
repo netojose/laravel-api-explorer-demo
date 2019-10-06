@@ -22,11 +22,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(UrlGenerator $url)
+    public function boot(UrlGenerator $urlGenerator)
     {
-        $url = config('app.url');
-        if (strpos($url, 'https://') !== false) {
-            $url->forceScheme('https');
+        $appUrl = config('app.url');
+        if (strpos($appUrl, 'https://') !== false) {
+            $urlGenerator->forceScheme('https');
         }
     }
 }
